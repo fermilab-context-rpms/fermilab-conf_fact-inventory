@@ -1,0 +1,5 @@
+BUILD/*
+SOURCE/*
+SRPMS/*
+RPMS/*
+*.tar.gz

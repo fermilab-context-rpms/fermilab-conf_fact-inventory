@@ -1,0 +1,5 @@
+---
+- hosts: fact_inventory
+  gather_facts: false
+  roles:
+    - fermilab.fact_inventory.gather

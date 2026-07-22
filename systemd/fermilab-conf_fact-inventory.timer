@@ -1,0 +1,13 @@
+[Unit]
+Description=Run Fermilab system inventory
+
+[Timer]
+OnCalendar=daily
+Persistent=true
+
+AccuracySec=90
+# 9900 seconds means 2h 45m
+RandomizedDelaySec=9900
+
+[Install]
+WantedBy=timers.target
