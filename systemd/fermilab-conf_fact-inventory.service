@@ -1,0 +1,25 @@
+[Unit]
+Description=Fermilab system inventory
+After=network.target
+Requires=local-fs.target
+
+[Service]
+Type=oneshot
+
+EnvironmentFile=/usr/share/fermilab-conf_fact-inventory/fermilab-conf_fact-inventory.env
+Environment=ANSIBLE_STDOUT_CALLBACK=minimal
+ExecStart=/usr/bin/ansible-playbook $CONNECTION $VAR_ARGS /usr/libexec/fact-inventory-gather/gather.yml
+
+ProtectSystem=strict
+ProtectHome=read-only
+PrivateTmp=true
+WorkingDirectory=/tmp
+
+ProtectClock=true
+ProtectControlGroups=true
+ProtectKernelModules=true
+ProtectKernelTunables=true
+RestrictRealtime=true
+
+[Install]
+WantedBy=multi-user.target

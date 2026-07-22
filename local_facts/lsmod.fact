@@ -1,0 +1,12 @@
+#!/bin/bash
+# Must be executable (chmod +x) and end in .fact
+
+names=()
+while read -r name _; do
+    names+=("$name")
+done </proc/modules
+
+mapfile -t sorted_names < <(printf '%s\n' "${names[@]}" | sort)
+
+printf -v joined '"%s",' "${sorted_names[@]}"
+printf '{"lsmod": [%s]}\n' "${joined%,}"

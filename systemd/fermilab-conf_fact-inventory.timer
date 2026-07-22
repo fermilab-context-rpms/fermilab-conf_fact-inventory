@@ -1,0 +1,14 @@
+[Unit]
+Description=Run fact-inventory once per day
+
+[Timer]
+OnCalendar=daily
+OnUnitInactiveSec=86000
+
+Unit=fermilab-conf_fact-inventory.service
+RandomizedDelaySec=9000
+AccuracySec=900
+Persistent=true
+
+[Install]
+WantedBy=timers.target

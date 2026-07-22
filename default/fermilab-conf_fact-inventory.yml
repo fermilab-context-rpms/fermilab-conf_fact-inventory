@@ -1,0 +1,3 @@
+---
+audit_file_create: true
+audit_file: /run/fermilab-conf_fact-inventory.json
