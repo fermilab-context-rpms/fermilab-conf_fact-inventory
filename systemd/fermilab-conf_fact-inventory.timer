@@ -1,0 +1,12 @@
+[Unit]
+Description=Run Fermilab system inventory
+
+[Timer]
+OnCalendar=daily
+Persistent=true
+
+AccuracySec=900
+RandomizedDelaySec=9900
+
+[Install]
+WantedBy=timers.target

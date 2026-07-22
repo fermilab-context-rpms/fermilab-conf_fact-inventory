@@ -1,0 +1,39 @@
+[Unit]
+Description=Fermilab system inventory
+
+After=local-fs.target remote-fs.target network-online.target
+Wants=local-fs.target network.target
+Requires=local-fs.target network.target
+
+StartLimitIntervalSec=3600
+StartLimitBurst=3
+
+[Service]
+Type=oneshot
+
+Environment=ANSIBLE_STDOUT_CALLBACK=minimal
+ExecStart=/usr/bin/ansible-playbook -i localhost.yml gather.yml
+
+Restart=on-failure
+RestartSec=300
+
+ProtectSystem=strict
+ProtectHome=read-only
+PrivateTmp=true
+ReadOnlyPaths=/
+UMask=0077
+
+Nice=6
+KeyringMode=private
+LockPersonality=true
+ProtectClock=true
+ProtectControlGroups=true
+ProtectHostname=true
+ProtectKernelLogs=true
+ProtectKernelModules=true
+ProtectKernelTunables=true
+RemoveIPC=true
+RestrictRealtime=true
+
+[Install]
+WantedBy=multi-user.target
