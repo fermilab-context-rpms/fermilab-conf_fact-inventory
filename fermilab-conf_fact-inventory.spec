@@ -2,7 +2,7 @@
 
 Name:    fermilab-conf_fact-inventory
 Version: 0.0.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 Group:   Fermilab
 License: AGPL-3.0-or-later
@@ -20,7 +20,8 @@ BuildRequires: python3
 BuildRequires: python3-pyyaml
 BuildRequires: logrotate
 
-Requires:  systemd
+%{systemd_ordering}
+%{systemd_requires}
 
 Requires:  ansible-core
 Requires:  /usr/bin/ansible-playbook
@@ -167,6 +168,11 @@ logrotate -d conf/%{name}.logrotate || exit 1
 %post
 %systemd_post %{name}.timer
 
+# default timespec may have changed
+if [ -x "/usr/lib/systemd/systemd-update-helper" ]; then
+    /usr/lib/systemd/systemd-update-helper mark-restart-system-units %{name}.timer
+fi
+
 
 %postun
 %systemd_postun_with_restart %{name}.timer
@@ -193,5 +199,8 @@ logrotate -d conf/%{name}.logrotate || exit 1
 
 
 %changelog
-* Fri Jul 31 2026 Pat Riehecky <riehecky@fnal.gov> - 0.0.0
+* Mon Aug 1 2026 Pat Riehecky <riehecky@fnal.gov> - 0.0.0-2
+- Fix failure to start timer unit
+
+* Fri Jul 31 2026 Pat Riehecky <riehecky@fnal.gov> - 0.0.0-1
 - Initial test package
