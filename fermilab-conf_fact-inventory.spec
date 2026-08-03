@@ -2,7 +2,7 @@
 
 Name:    fermilab-conf_fact-inventory
 Version: 0.0.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 
 Group:   Fermilab
 License: AGPL-3.0-or-later
@@ -214,6 +214,9 @@ fi
 
 
 %changelog
+* Mon Aug 1 2026 Pat Riehecky <riehecky@fnal.gov> - 0.0.0-3
+- Fix failure to start unit
+
 * Mon Aug 1 2026 Pat Riehecky <riehecky@fnal.gov> - 0.0.0-2
 - Fix failure to start timer unit
 
