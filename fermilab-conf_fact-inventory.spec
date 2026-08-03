@@ -170,12 +170,17 @@ logrotate -d conf/%{name}.logrotate || exit 1
 
 # default timespec may have changed
 if [ -x "/usr/lib/systemd/systemd-update-helper" ]; then
-    /usr/lib/systemd/systemd-update-helper mark-restart-system-units %{name}.timer
+    /usr/lib/systemd/systemd-update-helper mark-restart-system-units %{name}.timer || :
 fi
 
 
 %postun
 %systemd_postun_with_restart %{name}.timer
+
+# missing or different unit files preset logging errors
+if [ -x "/usr/lib/systemd/systemd-update-helper" ]; then
+    /usr/lib/systemd/systemd-update-helper system-reload || :
+fi
 
 
 %files
