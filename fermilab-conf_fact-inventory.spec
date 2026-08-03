@@ -183,7 +183,7 @@ fi
 %postun
 %systemd_postun_with_restart %{name}.timer
 
-# missing or different unit files preset logging errors
+# missing or different unit files present logging errors
 if [ -x "/usr/lib/systemd/systemd-update-helper" ]; then
     /usr/lib/systemd/systemd-update-helper system-reload || :
 fi
