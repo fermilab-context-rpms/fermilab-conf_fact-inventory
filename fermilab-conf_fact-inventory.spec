@@ -2,7 +2,7 @@
 
 Name:    fermilab-conf_fact-inventory
 Version: 0.0.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 
 Group:   Fermilab
 License: AGPL-3.0-or-later
@@ -33,6 +33,7 @@ Requires:  ansible-core
 Requires:  /usr/bin/ansible-playbook
 
 Requires:  ansible-collection(fermilab.fact_inventory)
+Requires:  ansible-collection(community.general)
 
 Suggests:  logrotate
 
@@ -216,6 +217,9 @@ fi
 
 
 %changelog
+* Mon Aug 3 2026 Pat Riehecky <riehecky@fnal.gov> - 0.0.0-4
+- dense output
+
 * Mon Aug 3 2026 Pat Riehecky <riehecky@fnal.gov> - 0.0.0-3
 - Fix failure to start unit
 
