@@ -12,6 +12,7 @@ StartLimitBurst=3
 Type=oneshot
 
 Environment=ANSIBLE_STDOUT_CALLBACK=minimal
+Environment= ANSIBLE_LOCAL_TEMP=/tmp/fermilab-conf_fact-inventory
 ExecStartPre=-/bin/mkdir /tmp/.ansible
 ExecStart=/usr/bin/ansible-playbook -i hosts.yml gather.yml
 
@@ -23,7 +24,6 @@ ProtectSystem=strict
 ProtectHome=read-only
 PrivateTmp=true
 ReadOnlyPaths=/
-BindPaths=/tmp/.ansible:/root/.ansible
 
 User=root
 Group=root
