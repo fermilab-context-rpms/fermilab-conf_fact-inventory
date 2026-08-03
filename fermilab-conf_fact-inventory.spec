@@ -33,7 +33,6 @@ Requires:  ansible-core
 Requires:  /usr/bin/ansible-playbook
 
 Requires:  ansible-collection(fermilab.fact_inventory)
-Requires:  ansible-collection(community.general)
 
 Suggests:  logrotate
 
