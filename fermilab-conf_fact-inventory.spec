@@ -20,6 +20,7 @@ BuildRequires: python3
 BuildRequires: python3-pyyaml
 BuildRequires: logrotate
 
+Requires: systemd
 Requires(post): systemd
 Requires(preun): systemd
 Requires(postun): systemd
