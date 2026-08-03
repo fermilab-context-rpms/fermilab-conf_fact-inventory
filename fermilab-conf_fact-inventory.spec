@@ -179,6 +179,9 @@ if [ -x "/usr/lib/systemd/systemd-update-helper" ]; then
     /usr/lib/systemd/systemd-update-helper mark-restart-system-units %{name}.timer || :
 fi
 
+# ensure timer is running
+systemctl start %{name}.timer
+
 
 %postun
 %systemd_postun_with_restart %{name}.timer
