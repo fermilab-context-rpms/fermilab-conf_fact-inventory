@@ -16,14 +16,20 @@ ExecStart=/usr/bin/ansible-playbook -i hosts.yml gather.yml
 
 Restart=on-failure
 RestartSec=300
+TimeoutStartSec=300
 
 ProtectSystem=strict
 ProtectHome=read-only
 PrivateTmp=true
 ReadOnlyPaths=/
-UMask=0077
 
+User=root
+Group=root
+UMask=0077
 Nice=6
+
+NoNewPrivileges=yes
+#CapabilityBoundingSet=CAP_SYS_RAWIO CAP_DAC_OVERRIDE CAP_DAC_READ_SEARCH CAP_FOWNER CAP_CHOWN
 KeyringMode=private
 LockPersonality=true
 ProtectClock=true
