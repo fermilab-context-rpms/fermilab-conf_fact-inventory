@@ -154,12 +154,14 @@ for name in sorted(os.listdir('conf')):
         with open(os.path.join('conf', name)) as stream:
             yaml.safe_load(stream)
 
-# systemd: every unit (not preset) must have at least one section
+# systemd: every unit (not preset) must have valid syntax
+# Use strict=False to allow duplicate keys (e.g., multiple Environment= lines)
 for name in sorted(os.listdir('systemd')):
     if name.endswith('.preset'):
         continue
-    config = configparser.ConfigParser()
-    config.read(os.path.join('systemd', name))
+    path = os.path.join('systemd', name)
+    config = configparser.ConfigParser(strict=False)
+    config.read(path)
     if not config.sections():
         raise SystemExit(f'ERROR: {name} has no sections')
 PYEOF
