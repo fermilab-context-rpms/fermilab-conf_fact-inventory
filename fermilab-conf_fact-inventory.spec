@@ -76,10 +76,11 @@ cat >conf/%{name}.logrotate <<EOF
 }
 EOF
 
-cat > conf/README <<EOF
-This directory is parsed as an ansible host_vars location for
-the "localhost" hostname. Parsed files should end in ".yaml",
-".yml", or ".json".
+cat > conf/README.yml <<EOF
+---
+# This directory is parsed as an ansible host_vars location for
+# the "localhost" hostname. Parsed files should end in ".yaml",
+# ".yml", or ".json".
 EOF
 
 
@@ -113,7 +114,7 @@ EOF
 # Files generated in this spec
 %{__install} -m 0644 -D conf/%{name}.logrotate %{buildroot}/%{_sysconfdir}/logrotate.d/%{name}
 
-%{__install} -m 0644 -D conf/README %{buildroot}/%{_sysconfdir}/%{name}/README
+%{__install} -m 0644 -D conf/README.yml %{buildroot}/%{_sysconfdir}/%{name}/README.yml
 
 %{__install} -m 0644 -D conf/%{name}_api_server.yml %{buildroot}/%{_datarootdir}/%{name}/group_vars/all/%{name}_api_server.yml
 %{__install} -m 0644 -D conf/%{name}_local_facts_dir.yml %{buildroot}/%{_datarootdir}/%{name}/group_vars/all/%{name}_local_facts_dir.yml
