@@ -173,12 +173,12 @@ logrotate -d conf/%{name}.logrotate || exit 1
 
 
 %post
-%systemd_post %{name}.timer
-
 # default timespec may have changed
 if [ -x "/usr/lib/systemd/systemd-update-helper" ]; then
-    /usr/lib/systemd/systemd-update-helper mark-restart-system-units %{name}.timer || :
+    /usr/lib/systemd/systemd-update-helper system-reload || :
 fi
+
+%systemd_post %{name}.timer
 
 # ensure timer is running
 systemctl start %{name}.timer
