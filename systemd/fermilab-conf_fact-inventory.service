@@ -12,7 +12,7 @@ StartLimitBurst=3
 Type=oneshot
 
 Environment=ANSIBLE_STDOUT_CALLBACK=minimal
-ExecStart=/usr/bin/ansible-playbook -i localhost.yml gather.yml
+ExecStart=/usr/bin/ansible-playbook -i hosts.yml gather.yml
 
 Restart=on-failure
 RestartSec=300
