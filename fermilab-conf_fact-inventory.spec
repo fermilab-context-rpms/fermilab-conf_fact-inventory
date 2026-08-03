@@ -214,10 +214,10 @@ fi
 
 
 %changelog
-* Mon Aug 1 2026 Pat Riehecky <riehecky@fnal.gov> - 0.0.0-3
+* Mon Aug 3 2026 Pat Riehecky <riehecky@fnal.gov> - 0.0.0-3
 - Fix failure to start unit
 
-* Mon Aug 1 2026 Pat Riehecky <riehecky@fnal.gov> - 0.0.0-2
+* Mon Aug 3 2026 Pat Riehecky <riehecky@fnal.gov> - 0.0.0-2
 - Fix failure to start timer unit
 
 * Fri Jul 31 2026 Pat Riehecky <riehecky@fnal.gov> - 0.0.0-1
