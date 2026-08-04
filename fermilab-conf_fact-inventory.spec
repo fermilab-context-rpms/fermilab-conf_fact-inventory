@@ -31,7 +31,6 @@ OrderWithRequires(postun): systemd
 
 Requires:  ansible-core
 Requires:  /usr/bin/ansible-playbook
-Requires:  /usr/bin/python3
 
 Requires:  ansible-collection(fermilab.fact_inventory)
 
