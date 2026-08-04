@@ -20,6 +20,8 @@ BuildRequires: python3
 BuildRequires: python3-pyyaml
 BuildRequires: logrotate
 
+#Obsoletes:  fermilab-conf_ocsinventory < 1:0
+
 Requires: systemd
 Requires(post): systemd
 Requires(preun): systemd
@@ -33,15 +35,14 @@ Requires:  ansible-core
 Requires:  /usr/bin/ansible-playbook
 Requires:  python3
 
+Suggests:  logrotate
+
 Requires:  ansible-collection(fermilab.fact_inventory)
 
 # local_fact: lsmod
 Requires:  bash
 Requires:  coreutils
 
-Suggests:  logrotate
-
-#Obsoletes:  fermilab-conf_ocsinventory < 1:0
 
 Summary: Configure fact-inventory for Fermilab
 %description
