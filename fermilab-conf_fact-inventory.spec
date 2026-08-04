@@ -12,10 +12,10 @@ Source0: %{name}.tar.gz
 
 BuildArch: noarch
 
-# Required for %%post scripts
+# Required for %%post script macros
 BuildRequires: systemd
 
-# Required for %%check phase validation
+# Required for %%check file validation
 BuildRequires: python3
 BuildRequires: python3-pyyaml
 BuildRequires: logrotate
@@ -33,7 +33,6 @@ Requires:  ansible-core
 Requires:  /usr/bin/ansible-playbook
 
 Requires:  ansible-collection(fermilab.fact_inventory)
-#Requires:  ansible-collection(community.general)
 
 Suggests:  logrotate
 
