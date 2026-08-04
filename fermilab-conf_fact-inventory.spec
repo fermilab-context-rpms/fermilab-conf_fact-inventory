@@ -109,6 +109,7 @@ EOF
 %{__mkdir_p} -m 0755 %{buildroot}/%{_var}/log/%{name}
 %{__mkdir_p} -m 0755 %{buildroot}/%{_libexecdir}/%{name}/local_facts
 %{__mkdir_p} -m 0755 %{buildroot}/%{_datarootdir}/%{name}/host_vars
+%{__mkdir_p} -m 0755 %{buildroot}/%{_datarootdir}/%{name}/group_vars/all
 
 %{__ln_s} %{_sysconfdir}/%{name} %{buildroot}/%{_datarootdir}/%{name}/host_vars/localhost
 
@@ -127,9 +128,7 @@ EOF
 
 %{__install} -m 0644 -D conf/README.yml %{buildroot}/%{_sysconfdir}/%{name}/README.yml
 
-%{__install} -m 0644 -D conf/%{name}_api_server.yml %{buildroot}/%{_datarootdir}/%{name}/group_vars/all/%{name}_api_server.yml
-%{__install} -m 0644 -D conf/%{name}_local_facts_dir.yml %{buildroot}/%{_datarootdir}/%{name}/group_vars/all/%{name}_local_facts_dir.yml
-%{__install} -m 0644 -D conf/%{name}_log.yml %{buildroot}/%{_datarootdir}/%{name}/group_vars/all/%{name}_log.yml
+%{__cp} conf/*.yml %{buildroot}/%{_datarootdir}/%{name}/group_vars/all/
 
 %{__install} -m 0644 -D systemd/%{name}-paths.conf %{buildroot}/%{_unitdir}/%{name}.service.d/%{name}-paths.conf
 
