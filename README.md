@@ -15,7 +15,7 @@ After installation, a systemd timer runs once per day (with a random
 delay to spread load) and triggers a oneshot service that executes:
 
 ```
-/usr/bin/ansible-playbook -i localhost.yml gather.yml
+/usr/bin/ansible-playbook -i hosts.yml gather.yml
 ```
 
 inside `%{_datarootdir}/fermilab-conf_fact-inventory`.  The playbook
