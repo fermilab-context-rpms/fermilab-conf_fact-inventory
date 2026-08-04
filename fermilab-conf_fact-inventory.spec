@@ -66,6 +66,11 @@ fact_inventory_gather_audit_enabled: true
 fact_inventory_gather_audit_path: %{_var}/log/%{name}/inventory.json
 EOF
 
+cat >conf/%{name}_no_log.yml <<EOF
+---
+fact_inventory_gather_no_log: true
+EOF
+
 
 cat >conf/%{name}.logrotate <<EOF
 %{_var}/log/%{name}/inventory.json {
