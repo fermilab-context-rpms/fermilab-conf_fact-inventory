@@ -11,7 +11,6 @@ StartLimitBurst=3
 [Service]
 Type=oneshot
 
-Environment=ANSIBLE_STDOUT_CALLBACK=null
 Environment=ANSIBLE_LOCAL_TEMP=/tmp
 Environment=ANSIBLE_REMOTE_TEMP=/tmp
 ExecStart=/usr/bin/ansible-playbook -i hosts.yml gather.yml
