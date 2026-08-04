@@ -31,8 +31,13 @@ OrderWithRequires(postun): systemd
 
 Requires:  ansible-core
 Requires:  /usr/bin/ansible-playbook
+Requires:  python3
 
 Requires:  ansible-collection(fermilab.fact_inventory)
+
+# local_fact: lsmod
+Requires:  bash
+Requires:  coreutils
 
 Suggests:  logrotate
 
