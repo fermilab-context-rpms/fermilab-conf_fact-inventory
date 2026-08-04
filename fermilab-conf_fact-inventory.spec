@@ -61,10 +61,17 @@ cat >conf/%{name}_local_facts_dir.yml <<EOF
 fact_inventory_gather_local_facts_dir: "%{_libexecdir}/%{name}/local_facts/"
 EOF
 
-cat >conf/%{name}_log.yml <<EOF
+cat >conf/%{name}_audit_log.yml <<EOF
 ---
 fact_inventory_gather_audit_enabled: true
 fact_inventory_gather_audit_path: %{_var}/log/%{name}/inventory.json
+EOF
+
+cat >conf/%{name}_suppress_log.yml <<EOF
+---
+fact_inventory_gather_suppress_collection_output: true
+fact_inventory_gather_suppress_audit_output: true
+fact_inventory_gather_suppress_submit_output: true
 EOF
 
 #######################################################
