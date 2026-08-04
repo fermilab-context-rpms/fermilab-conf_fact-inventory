@@ -33,7 +33,7 @@ Requires:  ansible-core
 Requires:  /usr/bin/ansible-playbook
 
 Requires:  ansible-collection(fermilab.fact_inventory)
-Requires:  ansible-collection(community.general)
+#Requires:  ansible-collection(community.general)
 
 Suggests:  logrotate
 
@@ -50,6 +50,7 @@ This RPM will setup and enable fact-inventory collection for use at Fermilab.
 
 %build
 
+#######################################################
 cat >conf/%{name}_api_server.yml <<EOF
 ---
 fact_inventory_gather_api_server: "%{apiserver}"
@@ -66,12 +67,7 @@ fact_inventory_gather_audit_enabled: true
 fact_inventory_gather_audit_path: %{_var}/log/%{name}/inventory.json
 EOF
 
-cat >conf/%{name}_no_log.yml <<EOF
----
-fact_inventory_gather_no_log: true
-EOF
-
-
+#######################################################
 cat >conf/%{name}.logrotate <<EOF
 %{_var}/log/%{name}/inventory.json {
     missingok
@@ -82,6 +78,7 @@ cat >conf/%{name}.logrotate <<EOF
 }
 EOF
 
+#######################################################
 cat > conf/README.yml <<EOF
 ---
 # This directory is parsed as an ansible host_vars location for
@@ -90,6 +87,7 @@ cat > conf/README.yml <<EOF
 EOF
 
 
+#######################################################
 cat >systemd/%{name}-paths.conf <<EOF
 [Service]
 WorkingDirectory=%{_datarootdir}/%{name}
