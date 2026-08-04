@@ -2,7 +2,7 @@
 
 Name:    fermilab-conf_fact-inventory
 Version: 0.0.0
-Release: 4%{?dist}
+Release: 5%{?dist}
 
 Group:   Fermilab
 License: AGPL-3.0-or-later
@@ -225,6 +225,9 @@ fi
 
 
 %changelog
+* Tue Aug 4 2026 Pat Riehecky <riehecky@fnal.gov> - 0.0.0-5
+- Fix ansible group name
+
 * Tue Aug 4 2026 Pat Riehecky <riehecky@fnal.gov> - 0.0.0-4
 - Fix "TMP" conflict
 
