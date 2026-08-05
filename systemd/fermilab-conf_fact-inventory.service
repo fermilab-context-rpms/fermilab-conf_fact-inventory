@@ -6,7 +6,7 @@ Wants=local-fs.target network.target
 Requires=local-fs.target network.target
 
 StartLimitIntervalSec=3600
-StartLimitBurst=3
+StartLimitBurst=4
 
 [Service]
 Type=oneshot
@@ -16,7 +16,7 @@ Environment=ANSIBLE_REMOTE_TEMP=/tmp/ansible-remote
 ExecStart=/usr/bin/ansible-playbook -i hosts.yml gather.yml
 
 Restart=on-failure
-RestartSec=300
+RestartSec=900
 TimeoutStartSec=300
 
 ProtectSystem=strict
