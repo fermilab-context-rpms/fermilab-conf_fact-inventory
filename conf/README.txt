@@ -15,10 +15,7 @@ following file types are recognized:
 Files without an extension may be treated as YAML. This should be avoided.
 
 Files in this directory override or extend the default configuration
-defined in group_vars/all, enabling site-specific customization such as:
-  - Custom fact_inventory_api_server endpoint
-  - fact_inventory_audit_path location
-  - Additional local facts or variables
+defined in group_vars/all, enabling site-specific customization.
 
 Example
 -------
