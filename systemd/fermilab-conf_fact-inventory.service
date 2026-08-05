@@ -34,9 +34,11 @@ IOSchedulingClass=best-effort
 IOSchedulingPriority=6
 
 NoNewPrivileges=yes
+AmbientCapabilities=
 CapabilityBoundingSet=CAP_DAC_OVERRIDE CAP_FOWNER CAP_CHOWN
 KeyringMode=private
 LockPersonality=true
+SystemCallArchitectures=native
 ProtectClock=true
 ProtectControlGroups=true
 ProtectHostname=true
