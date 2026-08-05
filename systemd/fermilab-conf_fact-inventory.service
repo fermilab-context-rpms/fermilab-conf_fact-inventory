@@ -17,7 +17,7 @@ ExecStart=/usr/bin/ansible-playbook -i hosts.yml gather.yml
 
 Restart=on-failure
 RestartSec=900
-TimeoutStartSec=300
+TimeoutStartSec=90
 
 ProtectSystem=strict
 ProtectHome=read-only
