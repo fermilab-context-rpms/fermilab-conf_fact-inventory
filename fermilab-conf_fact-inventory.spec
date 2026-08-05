@@ -12,6 +12,10 @@ Source0: %{name}.tar.gz
 
 BuildArch: noarch
 
+#Obsoletes:  fermilab-conf_ocsinventory < 1:0
+#Obsoletes:  fermilab-util_ocsinventory < 1:0
+
+#######################################################
 # Required for %%post script macros
 BuildRequires: systemd
 
@@ -20,8 +24,7 @@ BuildRequires: python3
 BuildRequires: python3-pyyaml
 BuildRequires: logrotate
 
-#Obsoletes:  fermilab-conf_ocsinventory < 1:0
-
+#######################################################
 Requires: systemd
 Requires(post): systemd
 Requires(preun): systemd
@@ -39,11 +42,13 @@ Suggests:  logrotate
 
 Requires:  ansible-collection(fermilab.fact_inventory)
 
+#######################################################
 # local_fact: lsmod
 Requires:  bash
 Requires:  coreutils
 
 
+#######################################################
 Summary: Configure fact-inventory for Fermilab
 %description
 This RPM will setup and enable fact-inventory collection for use at Fermilab.
