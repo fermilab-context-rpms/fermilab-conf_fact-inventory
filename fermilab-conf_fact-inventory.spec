@@ -91,15 +91,6 @@ cat >conf/%{name}.logrotate <<EOF
 EOF
 
 #######################################################
-cat > conf/README.yml <<EOF
----
-# This directory is parsed as an ansible host_vars location for
-# the "localhost" hostname. Parsed files should end in ".yaml",
-# ".yml", or ".json".
-EOF
-
-
-#######################################################
 cat >systemd/%{name}-paths.conf <<EOF
 [Service]
 WorkingDirectory=%{_datarootdir}/%{name}
@@ -121,6 +112,8 @@ EOF
 # Files packaged up in the source repo
 %{__cp} -a local_facts/*.fact %{buildroot}/%{_libexecdir}/%{name}/local_facts/
 
+%{__install} -m 0644 -D conf/README.txt %{buildroot}/%{_sysconfdir}/%{name}/README.txt
+
 %{__install} -m 0644 -D gather.yml %{buildroot}/%{_datarootdir}/%{name}/gather.yml
 %{__install} -m 0644 -D hosts.yml %{buildroot}/%{_datarootdir}/%{name}/hosts.yml
 
@@ -131,7 +124,6 @@ EOF
 # Files generated in this spec
 %{__install} -m 0644 -D conf/%{name}.logrotate %{buildroot}/%{_sysconfdir}/logrotate.d/%{name}
 
-%{__install} -m 0644 -D conf/README.yml %{buildroot}/%{_sysconfdir}/%{name}/README.yml
 
 %{__cp} conf/*.yml %{buildroot}/%{_datarootdir}/%{name}/group_vars/all/
 
