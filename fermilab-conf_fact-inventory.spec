@@ -31,10 +31,6 @@ Requires(post): systemd
 Requires(preun): systemd
 Requires(postun): systemd
 
-OrderWithRequires(post): systemd
-OrderWithRequires(preun): systemd
-OrderWithRequires(postun): systemd
-
 Requires:  ansible-core
 Requires:  /usr/bin/ansible-playbook
 Requires:  python3
