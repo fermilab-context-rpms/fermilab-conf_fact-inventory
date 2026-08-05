@@ -2,7 +2,7 @@
 
 Name:    fermilab-conf_fact-inventory
 Version: 0.0.0
-Release: 7%{?dist}
+Release: 8%{?dist}
 
 Group:   Fermilab
 License: AGPL-3.0-or-later
@@ -25,6 +25,7 @@ BuildRequires: python3-pyyaml
 BuildRequires: logrotate
 
 #######################################################
+# The service and its component parts
 Requires: systemd
 Requires(post): systemd
 Requires(preun): systemd
@@ -38,14 +39,18 @@ Requires:  ansible-core
 Requires:  /usr/bin/ansible-playbook
 Requires:  python3
 
-Suggests:  logrotate
-
 Requires:  ansible-collection(fermilab.fact_inventory)
+
+Suggests:  logrotate
 
 #######################################################
 # local_fact: lsmod
 Requires:  bash
 Requires:  coreutils
+Requires:  glibc-common
+%if 0%{?rhel} > 8
+Requires:  (glibc-all-langpacks or glibc-langpack-en)
+%endif
 
 
 #######################################################
@@ -229,21 +234,5 @@ fi
 
 
 %changelog
-* Wed Aug 5 2026 Pat Riehecky <riehecky@fnal.gov> - 0.0.0-6
-- Further restrict caps
-
-* Tue Aug 4 2026 Pat Riehecky <riehecky@fnal.gov> - 0.0.0-5
-- Fix ansible group name
-
-* Tue Aug 4 2026 Pat Riehecky <riehecky@fnal.gov> - 0.0.0-4
-- Fix "TMP" conflict
-
-* Mon Aug 3 2026 Pat Riehecky <riehecky@fnal.gov> - 0.0.0-3
-- Fix failure to start unit
-- dense output
-
-* Mon Aug 3 2026 Pat Riehecky <riehecky@fnal.gov> - 0.0.0-2
-- Fix failure to start timer unit
-
 * Fri Jul 31 2026 Pat Riehecky <riehecky@fnal.gov> - 0.0.0-1
 - Initial test package
