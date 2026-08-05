@@ -2,7 +2,7 @@
 
 Name:    fermilab-conf_fact-inventory
 Version: 0.0.0
-Release: 6%{?dist}
+Release: 7%{?dist}
 
 Group:   Fermilab
 License: AGPL-3.0-or-later
@@ -92,6 +92,7 @@ cat >conf/%{name}.logrotate <<EOF
     create 0600 root root
     daily
     compress
+    minsize 128
 }
 EOF
 
