@@ -1,5 +1,5 @@
 Host-specific configuration overrides
-======================================================================
+=============================================================================
 
 This directory is linked as host_vars/localhost during Ansible execution,
 allowing per-host customization of the fact-inventory client.
@@ -29,5 +29,5 @@ Create "api_server.yml" to override the inventory server:
 Multiple files are merged; use descriptive names to organize settings
 by purpose - such as "logging.yml"
 
-See the packaged doc README.md for installation layout and configuration details.
 Consult the role documentation for utilized ansible variables.
+See the packaged doc README.md for installation layout and configuration.
