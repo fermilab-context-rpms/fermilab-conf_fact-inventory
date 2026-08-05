@@ -44,13 +44,10 @@ Requires:  ansible-collection(fermilab.fact_inventory)
 Suggests:  logrotate
 
 #######################################################
-# local_fact: lsmod
+# local_fact: lsmod -> bash, sort, LANG=C.utf8
 Requires:  bash
 Requires:  coreutils
 Requires:  glibc-common
-%if 0%{?rhel} > 8
-Requires:  (glibc-all-langpacks or glibc-langpack-en)
-%endif
 
 
 #######################################################

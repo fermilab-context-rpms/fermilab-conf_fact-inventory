@@ -2,7 +2,7 @@
 # Must be executable (chmod +x) and end in .fact
 
 if [[ -r /proc/modules ]]; then
-    export LC_ALL=C
+    export LC_ALL=C.utf8
 
     names=()
     while read -r name _; do
