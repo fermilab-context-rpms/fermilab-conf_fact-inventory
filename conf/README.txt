@@ -1,4 +1,4 @@
-Host-specific configuration overrides for fermilab-conf_fact-inventory
+Host-specific configuration overrides
 ======================================================================
 
 This directory is linked as host_vars/localhost during Ansible execution,
@@ -22,10 +22,12 @@ defined in group_vars/all, enabling site-specific customization such as:
 
 Example
 -------
-Create "inventory.yml" to override the inventory server:
-  fact_inventory_api_server: https://custom-inventory.example.com
+Create "api_server.yml" to override the inventory server:
+
+  echo "api_server: https://custom-inventory.example.com" > api_server.yml
 
 Multiple files are merged; use descriptive names to organize settings
-by purpose (e.g., "database.yml", "api.yml", "monitoring.yml").
+by purpose - such as "logging.yml"
 
 See the packaged doc README.md for installation layout and configuration details.
+Consult the role documentation for utilized ansible variables.
