@@ -41,6 +41,10 @@ Requires:  python3
 
 Requires:  ansible-collection(fermilab.fact_inventory)
 
+# Suggests is a very weak dep.
+# The service will overwrite the log automatically ensuring
+# you always have the latest copy.
+# Rotation is only required for folks who want a long audit trail.
 Suggests:  logrotate
 
 #######################################################
