@@ -5,7 +5,7 @@ Description=Run Fermilab system inventory
 OnCalendar=daily
 Persistent=true
 
-AccuracySec=900
+AccuracySec=90
 RandomizedDelaySec=9900
 
 [Install]
