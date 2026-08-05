@@ -13,4 +13,6 @@ if [[ -r /proc/modules ]]; then
 
     printf -v joined '"%s",' "${sorted_names[@]}"
     printf '{"lsmod": [%s]}\n' "${joined%,}"
+else
+    printf '{"lsmod": []}\n'
 fi
