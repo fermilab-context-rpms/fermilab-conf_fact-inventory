@@ -132,7 +132,6 @@ EOF
 # Files generated in this spec
 %{__install} -m 0644 -D conf/%{name}.logrotate %{buildroot}/%{_sysconfdir}/logrotate.d/%{name}
 
-
 %{__cp} conf/*.yml %{buildroot}/%{_datarootdir}/%{name}/group_vars/all/
 
 %{__install} -m 0644 -D systemd/%{name}-paths.conf %{buildroot}/%{_unitdir}/%{name}.service.d/%{name}-paths.conf
