@@ -74,8 +74,8 @@ EOF
 
 cat >conf/%{name}_suppress_log.yml <<EOF
 ---
-fact_inventory_gather_suppress_collection_output: true
 fact_inventory_gather_suppress_audit_output: true
+fact_inventory_gather_suppress_collection_output: true
 fact_inventory_gather_suppress_submit_output: true
 EOF
 
