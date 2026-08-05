@@ -8,9 +8,9 @@ Configuration files
 -------------------
 Add YAML, JSON, or extensionless files to this directory. Only the
 following file types are recognized:
-  - .yaml
-  - .yml
-  - .json
+  * .yaml
+  * .yml
+  * .json
 
 Files without an extension may be treated as YAML. This should be avoided.
 
