@@ -2,6 +2,8 @@
 # Must be executable (chmod +x) and end in .fact
 
 if [[ -r /proc/modules ]]; then
+    export LC_ALL=C
+
     names=()
     while read -r name _; do
         names+=("$name")
