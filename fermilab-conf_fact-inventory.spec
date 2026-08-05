@@ -2,7 +2,7 @@
 
 Name:    fermilab-conf_fact-inventory
 Version: 0.0.0
-Release: 5%{?dist}
+Release: 6%{?dist}
 
 Group:   Fermilab
 License: AGPL-3.0-or-later
@@ -231,6 +231,9 @@ fi
 
 
 %changelog
+* Wed Aug 5 2026 Pat Riehecky <riehecky@fnal.gov> - 0.0.0-6
+- Further restrict caps
+
 * Tue Aug 4 2026 Pat Riehecky <riehecky@fnal.gov> - 0.0.0-5
 - Fix ansible group name
 
