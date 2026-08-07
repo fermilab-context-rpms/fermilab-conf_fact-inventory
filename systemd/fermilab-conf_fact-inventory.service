@@ -32,6 +32,7 @@ UMask=0077
 Nice=6
 IOSchedulingClass=best-effort
 IOSchedulingPriority=6
+MemoryMax=256M
 
 NoNewPrivileges=yes
 AmbientCapabilities=
