@@ -26,5 +26,7 @@ Create "api_server.yml" to override the inventory server:
 Multiple files are merged; use descriptive names to organize settings
 by purpose - such as "logging.yml"
 
-Consult the role documentation for utilized ansible variables.
+Consult the role documentation for fermilab.fact_inventory.gather and its
+utilized ansible variables.
+
 See the packaged doc README.md for installation layout and configuration.
