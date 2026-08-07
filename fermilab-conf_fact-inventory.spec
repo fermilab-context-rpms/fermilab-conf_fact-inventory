@@ -196,8 +196,10 @@ fi
 
 %systemd_post %{name}.timer
 
-# ensure timer is running
-systemctl start %{name}.timer
+# ensure timer is running if unmasked
+if [ systemctl is-enabled --quiet %{name}.timer ]; then
+    systemctl start %{name}.timer
+fi
 
 
 %postun
