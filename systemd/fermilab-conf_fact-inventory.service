@@ -40,7 +40,7 @@ RuntimeMaxSec=90
 
 NoNewPrivileges=yes
 AmbientCapabilities=
-CapabilityBoundingSet=CAP_DAC_OVERRIDE CAP_FOWNER CAP_CHOWN
+CapabilityBoundingSet=CAP_DAC_OVERRIDE CAP_CHOWN
 KeyringMode=private
 LockPersonality=true
 SystemCallArchitectures=native
