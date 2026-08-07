@@ -33,6 +33,10 @@ Nice=6
 IOSchedulingClass=best-effort
 IOSchedulingPriority=6
 MemoryMax=256M
+LimitCPU=90
+CPUQuota=50%
+CPUWeight=50
+RuntimeMaxSec=90
 
 NoNewPrivileges=yes
 AmbientCapabilities=
