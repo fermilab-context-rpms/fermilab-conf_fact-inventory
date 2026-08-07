@@ -23,8 +23,8 @@ runs the `fermilab.fact_inventory.gather` role against localhost, which
 collects facts from this host and ships them to the inventory API
 server.
 
-The timer is enabled through a systemd preset, so it becomes active
-immediately on install:
+The timer is enabled through a systemd preset, and started upon install
+so it becomes active immediately on install:
 
 ```
 %{_presetdir}/30-fermilab-conf_fact-inventory.preset
