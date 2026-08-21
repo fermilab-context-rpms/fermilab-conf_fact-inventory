@@ -138,6 +138,7 @@ EOF
 
 %check
 
+%if 0%{?rhel} > 8
 python3 - <<'PYEOF' || exit 1
 import configparser
 import json
@@ -188,6 +189,7 @@ for name in sorted(os.listdir('systemd')):
     if not config.sections():
         raise SystemExit(f'ERROR: {name} has no sections')
 PYEOF
+%endif
 
 # Native syntax check of the logrotate config
 logrotate -d conf/%{name}.logrotate || exit 1
